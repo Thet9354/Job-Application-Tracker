@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 
 const STATUSES = [
-  { id: "wishlist", label: "Wishlist", color: "#8B8FA3", bg: "#F0F0F4" },
-  { id: "applied", label: "Applied", color: "#3B82F6", bg: "#EFF6FF" },
-  { id: "oa", label: "OA/Assessment", color: "#8B5CF6", bg: "#F5F3FF" },
-  { id: "interview", label: "Interview", color: "#F59E0B", bg: "#FFFBEB" },
-  { id: "offer", label: "Offer", color: "#10B981", bg: "#ECFDF5" },
-  { id: "rejected", label: "Rejected", color: "#EF4444", bg: "#FEF2F2" },
-  { id: "withdrawn", label: "Withdrawn", color: "#6B7280", bg: "#F3F4F6" },
+  { id: "wishlist", label: "Wishlist", color: "#8B8FA3", bg: "#2d2d3a" },
+  { id: "applied", label: "Applied", color: "#3B82F6", bg: "#1e3a5f" },
+  { id: "oa", label: "OA/Assessment", color: "#8B5CF6", bg: "#2d1f5e" },
+  { id: "interview", label: "Interview", color: "#F59E0B", bg: "#3d2e0a" },
+  { id: "offer", label: "Offer", color: "#10B981", bg: "#0d3b2e" },
+  { id: "rejected", label: "Rejected", color: "#EF4444", bg: "#3b1c1c" },
+  { id: "withdrawn", label: "Withdrawn", color: "#6B7280", bg: "#2d2f33" },
 ];
 
 const PRIORITIES = [
@@ -746,7 +746,7 @@ const styles = {
   loadingSpinner: {
     width: 32,
     height: 32,
-    border: "3px solid #E5E7EB",
+    border: "3px solid #334155",
     borderTopColor: "#3B82F6",
     borderRadius: "50%",
     animation: "spin 0.8s linear infinite",
