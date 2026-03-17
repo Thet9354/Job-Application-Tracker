@@ -200,11 +200,15 @@ export default function ApplicationTracker() {
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap');
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        tr:hover { background: #FAFAFE !important; }
-        .board-card:hover { border-color: #D0D0D8 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important; }
-        select:focus, input:focus, textarea:focus { border-color: #3B82F6 !important; }
+        tr:hover { background: #1f2937 !important; }
+        .board-card:hover { border-color: #3b82f6 !important; box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important; }
+        select:focus, input:focus, textarea:focus { border-color: #3B82F6 !important; background: #1f2937 !important; }
         button:hover { opacity: 0.85; }
         .del-btn:hover { color: #EF4444 !important; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
       `}</style>
 
       {/* Header */}
@@ -577,7 +581,7 @@ function TableView({ apps, getStatus, getPriority, formatDate, formatRelative, o
             const deadlineSoon = app.deadline && (new Date(app.deadline) - Date.now()) < 3 * 86400000 && (new Date(app.deadline) - Date.now()) > 0;
             return (
               <tr key={app.id} style={styles.tr} onClick={() => onEdit(app)}>
-                <td style={{ ...styles.td, fontWeight: 600, color: "#1a1a2e" }}>{app.company}</td>
+                <td style={{ ...styles.td, fontWeight: 600, color: "#E6EDF3" }}>{app.company}</td>
                 <td style={styles.td}>{app.role}</td>
                 <td style={styles.td}>
                   <select
@@ -726,9 +730,9 @@ function DetailRow({ label, value, isLink }) {
 const styles = {
   container: {
     fontFamily: "'DM Sans', sans-serif",
-    background: "#F8F8FC",
+    background: "#0f172a",
     minHeight: "100vh",
-    color: "#1a1a2e",
+    color: "#E6EDF3",
     padding: "0 0 40px",
   },
   loadingScreen: {
@@ -737,7 +741,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     minHeight: "100vh",
-    background: "#F8F8FC",
+    background: "#0f172a",
   },
   loadingSpinner: {
     width: 32,
@@ -752,8 +756,8 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "24px 32px",
-    background: "#fff",
-    borderBottom: "1px solid #EEEEF2",
+    background: "#1e293b",
+    borderBottom: "1px solid #334155",
     flexWrap: "wrap",
     gap: 16,
   },
@@ -762,7 +766,7 @@ const styles = {
     width: 40,
     height: 40,
     borderRadius: 10,
-    background: "#F0F0F4",
+    background: "#334155",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -776,7 +780,7 @@ const styles = {
   },
   subtitle: { margin: 0, fontSize: 13, color: "#8B8FA3" },
   addBtn: {
-    background: "#1a1a2e",
+    background: "#3b82f6",
     color: "#fff",
     border: "none",
     borderRadius: 10,
@@ -823,8 +827,8 @@ const styles = {
     display: "flex",
     alignItems: "center",
     gap: 8,
-    background: "#fff",
-    border: "1.5px solid #EEEEF2",
+    background: "#1e293b",
+    border: "1.5px solid #334155",
     borderRadius: 10,
     padding: "8px 14px",
     flex: "1 1 280px",
@@ -836,7 +840,7 @@ const styles = {
     fontSize: 14,
     flex: 1,
     fontFamily: "'DM Sans', sans-serif",
-    color: "#1a1a2e",
+    color: "#E6EDF3",
     background: "transparent",
   },
   clearSearch: {
@@ -850,18 +854,18 @@ const styles = {
   toolbarRight: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" },
   filterSelect: {
     padding: "8px 12px",
-    border: "1.5px solid #EEEEF2",
+    border: "1.5px solid #334155",
     borderRadius: 10,
-    background: "#fff",
+    background: "#1e293b",
     fontSize: 13,
-    color: "#1a1a2e",
+    color: "#E6EDF3",
     fontFamily: "'DM Sans', sans-serif",
     cursor: "pointer",
     outline: "none",
   },
   viewToggle: {
     display: "flex",
-    background: "#F0F0F4",
+    background: "#334155",
     borderRadius: 8,
     overflow: "hidden",
   },
@@ -884,27 +888,27 @@ const styles = {
   emptyText: { color: "#8B8FA3", fontSize: 14, margin: "0 0 24px" },
 
   /* TABLE */
-  tableWrap: { overflowX: "auto", borderRadius: 12, border: "1px solid #EEEEF2", background: "#fff" },
+  tableWrap: { overflowX: "auto", borderRadius: 12, border: "1px solid #334155", background: "#1e293b" },
   table: { width: "100%", borderCollapse: "collapse", fontSize: 13 },
   th: {
     textAlign: "left",
     padding: "12px 16px",
-    background: "#FAFAFE",
+    background: "#1f2937",
     fontWeight: 600,
     fontSize: 11,
     textTransform: "uppercase",
     letterSpacing: "0.5px",
     color: "#8B8FA3",
-    borderBottom: "1px solid #EEEEF2",
+    borderBottom: "1px solid #334155",
     whiteSpace: "nowrap",
   },
   tr: { cursor: "pointer" },
   td: {
     padding: "12px 16px",
-    borderBottom: "1px solid #F5F5F8",
+    borderBottom: "1px solid #334155",
     whiteSpace: "nowrap",
     fontSize: 13,
-    color: "#374151",
+    color: "#C9D1D9",
   },
   inlineSelect: {
     border: "none",
@@ -937,9 +941,9 @@ const styles = {
   boardCol: {
     minWidth: 220,
     flex: "1 0 220px",
-    background: "#fff",
+    background: "#1e293b",
     borderRadius: 12,
-    border: "1px solid #EEEEF2",
+    border: "1px solid #334155",
     display: "flex",
     flexDirection: "column",
   },
@@ -948,10 +952,10 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "14px 16px",
-    borderBottom: "1px solid #EEEEF2",
+    borderBottom: "1px solid #334155",
   },
   boardCount: {
-    background: "#F0F0F4",
+    background: "#334155",
     borderRadius: 10,
     padding: "2px 8px",
     fontSize: 11,
@@ -961,7 +965,7 @@ const styles = {
   boardCards: { padding: 8, display: "flex", flexDirection: "column", gap: 6, flex: 1 },
   boardCard: {
     padding: "12px 14px",
-    background: "#FAFAFE",
+    background: "#1f2937",
     borderRadius: 8,
     cursor: "pointer",
     display: "flex",
@@ -978,19 +982,19 @@ const styles = {
     gap: 14,
   },
   card: {
-    background: "#fff",
+    background: "#1e293b",
     borderRadius: 12,
     padding: "18px 20px",
-    border: "1px solid #EEEEF2",
+    border: "1px solid #334155",
     display: "flex",
     flexDirection: "column",
   },
-  cardCompany: { margin: 0, fontSize: 15, fontWeight: 700, color: "#1a1a2e" },
+  cardCompany: { margin: 0, fontSize: 15, fontWeight: 700, color: "#E6EDF3" },
   cardRole: { margin: "2px 0 0", fontSize: 13, color: "#6B7280" },
   cardExpanded: {
     marginTop: 14,
     paddingTop: 14,
-    borderTop: "1px solid #EEEEF2",
+    borderTop: "1px solid #334155",
     display: "flex",
     flexDirection: "column",
     gap: 8,
@@ -1002,7 +1006,7 @@ const styles = {
     alignItems: "center",
     marginTop: 14,
     paddingTop: 10,
-    borderTop: "1px solid #F5F5F8",
+    borderTop: "1px solid #334155",
   },
   cardActionBtn: {
     background: "none",
@@ -1020,7 +1024,7 @@ const styles = {
   overlay: {
     position: "fixed",
     inset: 0,
-    background: "rgba(26,26,46,0.45)",
+    background: "rgba(0,0,0,0.7)",
     backdropFilter: "blur(4px)",
     display: "flex",
     alignItems: "center",
@@ -1029,7 +1033,7 @@ const styles = {
     padding: 20,
   },
   modal: {
-    background: "#fff",
+    background: "#1e293b",
     borderRadius: 16,
     width: "100%",
     maxWidth: 640,
@@ -1043,7 +1047,7 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "20px 24px",
-    borderBottom: "1px solid #EEEEF2",
+    borderBottom: "1px solid #334155",
   },
   modalTitle: {
     fontFamily: "'DM Serif Display', serif",
@@ -1060,7 +1064,7 @@ const styles = {
     padding: "0 4px",
     lineHeight: 1,
   },
-  modalBody: { padding: "20px 24px", overflowY: "auto", flex: 1 },
+  modalBody: { padding: "20px 24px", overflowY: "auto", flex: 1, color: "#E6EDF3" },
   formGrid: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
@@ -1078,28 +1082,28 @@ const styles = {
   input: {
     width: "100%",
     padding: "10px 12px",
-    border: "1.5px solid #EEEEF2",
+    border: "1.5px solid #334155",
     borderRadius: 8,
     fontSize: 14,
     fontFamily: "'DM Sans', sans-serif",
-    color: "#1a1a2e",
+    color: "#E6EDF3",
     outline: "none",
     transition: "border-color 0.15s",
     boxSizing: "border-box",
-    background: "#FAFAFE",
+    background: "#1f2937",
   },
   modalFooter: {
     display: "flex",
     justifyContent: "flex-end",
     gap: 10,
     padding: "16px 24px",
-    borderTop: "1px solid #EEEEF2",
+    borderTop: "1px solid #334155",
   },
   cancelBtn: {
     padding: "10px 20px",
     borderRadius: 10,
-    border: "1.5px solid #EEEEF2",
-    background: "#fff",
+    border: "1.5px solid #334155",
+    background: "#1f2937",
     fontSize: 14,
     fontWeight: 500,
     cursor: "pointer",
@@ -1110,7 +1114,7 @@ const styles = {
     padding: "10px 24px",
     borderRadius: 10,
     border: "none",
-    background: "#1a1a2e",
+    background: "#3b82f6",
     color: "#fff",
     fontSize: 14,
     fontWeight: 600,
@@ -1118,7 +1122,7 @@ const styles = {
     fontFamily: "'DM Sans', sans-serif",
   },
   deleteModal: {
-    background: "#fff",
+    background: "#1e293b",
     borderRadius: 14,
     padding: 24,
     width: "100%",
